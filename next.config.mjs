@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
-const { withClerkMiddleware } = require('@clerk/nextjs');
+import { withClerkMiddleware } from '@clerk/nextjs'
 
-module.exports = withClerkMiddleware({
+export default withClerkMiddleware({
   publicRoutes: ["/", "/api/webhook/clerk"],
   ignoredRoutes: ['/api/webhook/clerk']
 });
 
-const nextConfig = {
+export const nextConfig = {
   experimental: {
     serverActions: true,
     serverComponentsExternalPackages: ["mongoose"],
@@ -42,4 +42,3 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
