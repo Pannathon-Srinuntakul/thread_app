@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
+const { withClerkMiddleware } = require('@clerk/nextjs');
+
+module.exports = withClerkMiddleware({
+  publicRoutes: ["/", "/api/webhook/clerk"],
+  ignoredRoutes: ['/api/webhook/clerk']
+});
+
 const nextConfig = {
   experimental: {
     serverActions: true,
@@ -29,8 +36,8 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "utfs.io"
-      }
+        hostname: "utfs.io",
+      },
     ],
   },
 };
